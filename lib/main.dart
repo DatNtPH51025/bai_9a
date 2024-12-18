@@ -1,7 +1,7 @@
 import 'package:bai_9a/consts/app_routers.dart';
 import 'package:bai_9a/models/entity/hive_entity/contacts_model.dart';
 import 'package:bai_9a/models/entity/hive_entity/product.dart';
-import 'package:bai_9a/screens/add_product/add_product.dart';
+import 'package:bai_9a/screens/splash_page/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: AppRouter.I.onGenerateRoute,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: AddProduct(), //SplashPage(),
+      home: SplashPage(), //AddProduct(),
     );
   }
 }

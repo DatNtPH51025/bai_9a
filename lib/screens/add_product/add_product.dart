@@ -1,3 +1,4 @@
+import 'package:bai_9a/consts/app_path.dart';
 import 'package:bai_9a/database/data_local/hive_db.dart';
 import 'package:bai_9a/models/entity/hive_entity/contacts_model.dart';
 import 'package:bai_9a/models/entity/product.dart';
@@ -84,7 +85,7 @@ class _AddProductPageState extends State<_AddProductScreen> {
                     name: "dat",
                     price: '10000',
                     oldPrice: '30000',
-                    image: "assets/images/img_fashion.png"),
+                    image: AppImages.img_dell),
                 Product(
                     name: "dat",
                     price: '10000',

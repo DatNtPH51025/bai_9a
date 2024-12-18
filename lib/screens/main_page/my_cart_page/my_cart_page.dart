@@ -1,4 +1,5 @@
 import 'package:bai_9a/consts/app_colors.dart';
+import 'package:bai_9a/consts/app_text_style.dart';
 import 'package:bai_9a/screens/checkout_shipping/checkout_shipping_page.dart';
 import 'package:bai_9a/screens/main_page/my_cart_page/my_cart_vm.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,8 @@ class _MyCardState extends State<MyCartPage> {
     );
   }
 }
+
+///copyWith dung them thuoc tinh khac thuoc tinh thong thuong.
 
 class MyCartScreen extends StatefulWidget {
   @override
@@ -153,7 +156,9 @@ class _MyCartScreenState extends State<MyCartScreen> {
         children: [
           Text(
             'Order Info',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+            style: AppTextStyle.text16R.copyWith(
+              color: AppColors.cYanPrimary,
+            ),
           ),
           SizedBox(height: 12),
           Row(
@@ -161,11 +166,15 @@ class _MyCartScreenState extends State<MyCartScreen> {
             children: [
               Text(
                 'Subtotal: ',
-                style: TextStyle(fontSize: 12, color: AppColors.cGray),
+                style: AppTextStyle.text12RI.copyWith(
+                  color: AppColors.cYanPrimary,
+                ),
               ),
               Text(
                 '\$${myCardVm.subtotal.toStringAsFixed(2)} ',
-                style: TextStyle(fontSize: 12, color: AppColors.cGray),
+                style: AppTextStyle.text16R.copyWith(
+                  color: AppColors.cYanPrimary,
+                ),
               ),
             ],
           ),
@@ -175,11 +184,15 @@ class _MyCartScreenState extends State<MyCartScreen> {
             children: [
               Text(
                 'Shipping Cost: ',
-                style: TextStyle(fontSize: 12, color: AppColors.cGray),
+                style: AppTextStyle.text16R.copyWith(
+                  color: AppColors.cYanPrimary,
+                ),
               ),
               Text(
                 '\$${myCardVm.shippingCost.toStringAsFixed(2)} ',
-                style: TextStyle(fontSize: 12, color: AppColors.cGray),
+                style: AppTextStyle.text16R.copyWith(
+                  color: AppColors.cYanPrimary,
+                ),
               ),
             ],
           ),
@@ -187,8 +200,13 @@ class _MyCartScreenState extends State<MyCartScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Total: ',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+              Text(
+                'Total: ',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
               Text(
                 '\$${myCardVm.total.toStringAsFixed(2)}',
                 style: TextStyle(fontSize: 16),
@@ -214,9 +232,10 @@ class _MyCartScreenState extends State<MyCartScreen> {
                 child: Text(
                   'Checkout',
                   style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w600),
+                    fontSize: 14,
+                    color: AppColors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),

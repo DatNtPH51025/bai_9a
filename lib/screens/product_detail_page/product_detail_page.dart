@@ -30,7 +30,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       ' The Loop Silicone Strong Magnetic Watch Band is highly versatile, '
       'compatible with a wide range of smartwatch models. Its adjustable strap length allows for a '
       'customizable fit, catering to various wrist sizes. Whether you`re engaging in intense workouts '
-  'or attending formal occasions, this watch band effortlessly adapts to your style and activity level.' ;
+      'or attending formal occasions, this watch band effortlessly adapts to your style and activity level.';
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +38,11 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Container(
+            Image.asset(
+              AppImages.img_clock,
+              fit: BoxFit.cover,
               height: 290,
               width: double.infinity,
-              child: Image.asset(
-                AppImages.img_clock,
-                fit: BoxFit.cover,
-              ),
             ),
             Positioned(
               top: 40,
@@ -86,7 +84,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             ),
             Positioned(
               child: Container(
-                height: getWidth(context)*2,
+                height: getWidth(context) * 2,
                 margin: EdgeInsets.only(top: 268),
                 decoration: BoxDecoration(
                   color: AppColors.white,
@@ -94,59 +92,62 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     top: Radius.circular(32),
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: SingleChildScrollView( // them vao day de tranh loi vang
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(6),
-                              decoration: BoxDecoration(
-                                color: Colors.blue[100],
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Text(
-                                'Top Rated',
-                                style: TextStyle(color: Colors.blue),
-                              ),
-                            ),
-                            SizedBox(width: 8),
-                            Container(
-                              padding: EdgeInsets.all(6),
-                              decoration: BoxDecoration(
-                                color: Colors.green[100],
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Text(
-                                'Free Shipping',
-                                style: TextStyle(color: Colors.green),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 6),
-                        buildProductTitleAndPrice(),
-                        SizedBox(height: 12),
-                        buildRating(),
-                        SizedBox(height: 14),
-                        buildProductDescription(),
-                        SizedBox(height: 12),
-                        buildColorSelection(),
-                        SizedBox(height: 12),
-                        buildQuantitySelection(),
-                        SizedBox(height: 45),
-                        buildActionButtons(),
-                      ],
-                    ),
-                  ),
-                ),
+                child: buildBody(),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildBody() {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      // them vao day de tranh loi vang
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  color: Colors.blue[100],
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Text(
+                  'Top Rated',
+                  style: TextStyle(color: Colors.blue),
+                ),
+              ),
+              SizedBox(width: 8),
+              Container(
+                padding: EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  color: Colors.green[100],
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Text(
+                  'Free Shipping',
+                  style: TextStyle(color: Colors.green),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 6),
+          buildProductTitleAndPrice(),
+          SizedBox(height: 12),
+          buildRating(),
+          SizedBox(height: 14),
+          buildProductDescription(),
+          SizedBox(height: 12),
+          buildColorSelection(),
+          SizedBox(height: 12),
+          buildQuantitySelection(),
+          SizedBox(height: 45),
+          buildActionButtons(),
+        ],
       ),
     );
   }
@@ -268,10 +269,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       trimMode: TrimMode.Line,
       trimCollapsedText: ' Read more',
       trimExpandedText: ' Less more',
-      lessStyle: AppTextStyle.textMedium.copyWith(
+      lessStyle: AppTextStyle.text16R.copyWith(
+        // fontSize: 18,// khong dung ban chat
+        // fontWeight: FontWeight.w600,// khong dung ban chat
+
         color: AppColors.cYanPrimary,
       ),
-      moreStyle: AppTextStyle.textMedium.copyWith(
+      moreStyle: AppTextStyle.text16R.copyWith(
         color: AppColors.cYanPrimary,
       ),
     );
@@ -308,14 +312,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           children: [
             GestureDetector(
               onTap: () {},
-              child: Container(
+              child: Padding(
                 padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.remove,
-                ),
+                child: Icon(Icons.remove),
               ),
             ),
             SizedBox(width: 16),
@@ -326,14 +325,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             SizedBox(width: 16),
             GestureDetector(
               onTap: () {},
-              child: Container(
+              child: Padding(
                 padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.add,
-                ),
+                child: Icon(Icons.add),
               ),
             ),
           ],
@@ -386,9 +380,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 Text(
                   'Add To Cart',
                   style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w600),
+                    fontSize: 14,
+                    color: AppColors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 SizedBox(width: 8),
                 SizedBox(
@@ -413,7 +408,6 @@ void showAlertDialog(BuildContext context) {
   AlertDialog alert = AlertDialog(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(16),
-
     ),
     content: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -456,5 +450,3 @@ void showAlertDialog(BuildContext context) {
     },
   );
 }
-
-
