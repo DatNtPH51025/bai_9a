@@ -26,6 +26,7 @@ class _SignUpState extends State<SignUpPage> {
     );
   }
 }
+
 class _SignUpScreen extends StatefulWidget {
   @override
   State<_SignUpScreen> createState() => _SignupPageState();
@@ -64,7 +65,7 @@ class _SignupPageState extends State<_SignUpScreen> {
                   SizedBox(height: 24),
                   Text(
                     'Sign Up',
-                    style: AppTextStyle.textBig.copyWith(
+                    style: AppTextStyle.text16SB.copyWith(
                       color: AppColors.cBlack,
                       fontWeight: FontWeight.w700,
                       fontSize: 24,
@@ -77,13 +78,13 @@ class _SignupPageState extends State<_SignUpScreen> {
                       children: [
                         TextSpan(
                           text: 'Already have an account ? ',
-                          style: AppTextStyle.textMedium.copyWith(
+                          style: AppTextStyle.text12RI.copyWith(
                             color: AppColors.cGray,
                           ),
                         ),
                         TextSpan(
                           text: ' Login ',
-                          style: AppTextStyle.textMedium,
+                          style: AppTextStyle.text12RI,
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               Navigator.pushNamed(context, AppRoutePath.login);
@@ -127,7 +128,9 @@ class _SignupPageState extends State<_SignUpScreen> {
                             color: Colors.transparent,
                           ),
                           child: Icon(
-                            logic.hintPass == true ? Icons.remove_red_eye_outlined : Icons.remove_red_eye,
+                            logic.hintPass == true
+                                ? Icons.remove_red_eye_outlined
+                                : Icons.remove_red_eye,
                           ),
                         ),
                       ),
@@ -154,7 +157,9 @@ class _SignupPageState extends State<_SignUpScreen> {
                             color: Colors.transparent,
                           ),
                           child: Icon(
-                            logic.hintConfirmPass == true ? Icons.remove_red_eye_outlined : Icons.remove_red_eye,
+                            logic.hintConfirmPass == true
+                                ? Icons.remove_red_eye_outlined
+                                : Icons.remove_red_eye,
                           ),
                         ),
                       ),

@@ -22,6 +22,7 @@ class _WishListState extends State<WishListPage> {
     );
   }
 }
+
 class WishListScreen extends StatefulWidget {
   const WishListScreen({super.key});
 
@@ -48,39 +49,36 @@ class _WishListScreenState extends State<WishListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Wish List')
-      ),
-      body:
-        Container(
-          height: getHeight(context),
-          margin: EdgeInsets.symmetric(horizontal: 16),
-          child: ListView.builder(
-            itemCount: listItem.length,
-            itemBuilder: (context, int index) {
-              return buildListItem(index, listItem[index]);
-            },
-          ),
+      appBar: AppBar(title: Text('Wish List')),
+      body: Container(
+        height: getHeight(context),
+        margin: EdgeInsets.symmetric(horizontal: 16),
+        child: ListView.builder(
+          itemCount: listItem.length,
+          itemBuilder: (context, int index) {
+            return buildListItem(index, listItem[index]);
+          },
         ),
+      ),
     );
   }
 
   Widget buildListItem(int index, Wishlist item) {
     return Container(
       width: 320,
-      height: getHeight(context)*0.15,
+      height: getHeight(context) * 0.18,
       margin: EdgeInsets.only(bottom: 16),
       child: Row(
         children: [
           SizedBox(
-            width: getHeight(context)*0.15,
-            height: getHeight(context)*0.15,
+            width: getHeight(context) * 0.15,
+            height: getHeight(context) * 0.15,
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(20)),
               child: Image.asset(item.images ?? ''),
             ),
           ),
-          SizedBox(width: 16),
+          SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,19 +114,25 @@ class _WishListScreenState extends State<WishListScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
-                     children: [
-                       Image.asset(AppImages.img_minus,
-                         width: 24,
-                         height: 24,),
-                       SizedBox(width: 4,),
-                       Container(
-                         child: Text("1"),
-                       ),
-                       SizedBox(width: 4,),
-                       Image.asset(AppImages.img_add,
-                       width: 24,
-                       height: 24,),
-                     ],
+                      children: [
+                        Image.asset(
+                          AppImages.img_minus,
+                          width: 24,
+                          height: 24,
+                        ),
+                        SizedBox(width: 4),
+                        Container(
+                          child: Text("1"),
+                        ),
+                        SizedBox(
+                          width: 4,
+                        ),
+                        Image.asset(
+                          AppImages.img_add,
+                          width: 24,
+                          height: 24,
+                        ),
+                      ],
                     ),
                     IconButton(
                       icon: Icon(Icons.delete, color: Colors.red),

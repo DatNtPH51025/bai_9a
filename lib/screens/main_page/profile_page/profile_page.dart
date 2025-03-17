@@ -90,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ],
                 ),
-                SizedBox(width: 134),
+                SizedBox(width: 120),
                 SvgPicture.asset(
                   AppImages.ic_logout,
                 )
@@ -110,12 +110,15 @@ class _ProfilePageState extends State<ProfilePage> {
               child: ListView(
                 children: [
                   buildSectionTitle('Personal Information'),
-                  buildProfileOption(context, 'Shipping Address', Icons.local_shipping),
+                  buildProfileOption(
+                      context, 'Shipping Address', Icons.local_shipping),
                   buildProfileOption(context, 'Payment Method', Icons.payment),
                   buildProfileOption(context, 'Order History', Icons.history),
                   buildSectionTitle('Support & Information'),
-                  buildProfileOption(context, 'Privacy Policy', Icons.privacy_tip),
-                  buildProfileOption(context, 'Terms & Conditions', Icons.article),
+                  buildProfileOption(
+                      context, 'Privacy Policy', Icons.privacy_tip),
+                  buildProfileOption(
+                      context, 'Terms & Conditions', Icons.article),
                   buildProfileOption(context, 'FAQs', Icons.help),
                   buildSectionTitle('Account Management'),
                   buildProfileOption(context, 'Change Password', Icons.lock),

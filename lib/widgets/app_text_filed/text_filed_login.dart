@@ -22,7 +22,7 @@ class TextFiledLogin extends StatelessWidget {
     return TextField(
       autofocus: true,
       controller: controller,
-      style: AppTextStyle.textMedium,
+      style: AppTextStyle.text12RI,
       autocorrect: false,
       obscureText: hintPass ?? false,
       keyboardType: TextInputType.text,
@@ -32,11 +32,12 @@ class TextFiledLogin extends StatelessWidget {
       },
       decoration: InputDecoration(
         hintText: hintText ?? 'Enter your input',
-        hintStyle: AppTextStyle.textMedium.copyWith(
-          color: AppColors.cGray.withOpacity(0.5),
+        hintStyle: AppTextStyle.text12RI.copyWith(
+          color: AppColors.cGray,
         ),
-        contentPadding:
-            subFixIc != null ? EdgeInsets.only(left: 16) : EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+        contentPadding: subFixIc != null
+            ? EdgeInsets.only(left: 16)
+            : EdgeInsets.symmetric(horizontal: 16, vertical: 18),
         isDense: true,
         filled: true,
         fillColor: AppColors.bgr,

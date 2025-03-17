@@ -46,7 +46,7 @@ class AppBarCpn extends StatelessWidget implements PreferredSizeWidget {
           ),
       title: Text(
         title,
-        style: AppTextStyle.textMedium.copyWith(
+        style: AppTextStyle.text12RI.copyWith(
           color: AppColors.cBlack,
           fontSize: 18,
           fontWeight: FontWeight.w500,

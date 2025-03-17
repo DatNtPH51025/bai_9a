@@ -8,7 +8,7 @@ Widget textTitleRequire(String title) {
     children: [
       Text(
         title,
-        style: AppTextStyle.textMedium.copyWith(
+        style: AppTextStyle.text12RI.copyWith(
           color: AppColors.cBlack,
           fontSize: 16,
           fontWeight: FontWeight.w600,
@@ -16,7 +16,7 @@ Widget textTitleRequire(String title) {
       ),
       Text(
         ' *',
-        style: AppTextStyle.textMedium.copyWith(
+        style: AppTextStyle.text12RI.copyWith(
           color: AppColors.cError,
           fontSize: 16,
           fontWeight: FontWeight.w600,
@@ -29,7 +29,7 @@ Widget textTitleRequire(String title) {
 Widget textTitle(String title) {
   return Text(
     title,
-    style: AppTextStyle.textMedium.copyWith(
+    style: AppTextStyle.text12RI.copyWith(
       color: AppColors.cBlack,
       fontSize: 18,
       fontWeight: FontWeight.w600,

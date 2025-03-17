@@ -103,7 +103,7 @@ class _IntroPageState extends State<_IntroScreen> {
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Text(
             title,
-            style: AppTextStyle.textSmall.copyWith(
+            style: AppTextStyle.text12RI.copyWith(
               color: AppColors.cBlack,
               fontWeight: FontWeight.w700,
             ),
@@ -115,7 +115,7 @@ class _IntroPageState extends State<_IntroScreen> {
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Text(
             subTitle,
-            style: AppTextStyle.textMedium.copyWith(
+            style: AppTextStyle.text12RI.copyWith(
               color: AppColors.cGray,
             ),
             textAlign: TextAlign.center,
@@ -161,7 +161,9 @@ class _IntroPageState extends State<_IntroScreen> {
         width: 6,
         height: 6,
         decoration: BoxDecoration(
-          color: logic.index == indexItem ? AppColors.cYanPrimary : AppColors.cGray,
+          color: logic.index == indexItem
+              ? AppColors.cYanPrimary
+              : AppColors.cGray,
           shape: BoxShape.circle,
         ),
       );
@@ -198,7 +200,7 @@ class _IntroPageState extends State<_IntroScreen> {
                       ? SizedBox()
                       : Text(
                           'Skip for now',
-                          style: AppTextStyle.textMedium,
+                          style: AppTextStyle.text12RI,
                         ),
                 ],
               );

@@ -30,7 +30,7 @@ class AppButton extends StatelessWidget {
         child: Center(
           child: Text(
             title ?? 'Next',
-            style: AppTextStyle.textBig.copyWith(
+            style: AppTextStyle.text16SB.copyWith(
               color: AppColors.bgr,
             ),
           ),

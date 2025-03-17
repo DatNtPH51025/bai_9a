@@ -117,7 +117,7 @@ class _MainPageState extends State<MainPage> {
               ),
               Text(
                 listTitle[i],
-                style: AppTextStyle.textSmall.copyWith(
+                style: AppTextStyle.text12RI.copyWith(
                   color: index == i ? AppColors.cYanPrimary : AppColors.cGray,
                 ),
               ),

@@ -82,7 +82,7 @@ class _LoginScreenState extends State<_LoginScreen> {
                   SizedBox(height: 24),
                   Text(
                     'Login',
-                    style: AppTextStyle.textBig.copyWith(
+                    style: AppTextStyle.text16SB.copyWith(
                       color: AppColors.cBlack,
                       fontWeight: FontWeight.w700,
                       fontSize: 24,
@@ -95,16 +95,17 @@ class _LoginScreenState extends State<_LoginScreen> {
                       children: [
                         TextSpan(
                           text: 'Don’t have an account ? ',
-                          style: AppTextStyle.textMedium.copyWith(
+                          style: AppTextStyle.text12RI.copyWith(
                             color: AppColors.cGray,
                           ),
                         ),
                         TextSpan(
                           text: 'Sign Up',
-                          style: AppTextStyle.textMedium,
+                          style: AppTextStyle.text12RI,
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.pushNamed(context, AppRoutePath.signUpOne);
+                              Navigator.pushNamed(
+                                  context, AppRoutePath.signUpOne);
                             },
                         ),
                       ],
@@ -137,7 +138,9 @@ class _LoginScreenState extends State<_LoginScreen> {
                               color: Colors.transparent,
                             ),
                             child: Icon(
-                              logic.hintPass == true ? Icons.remove_red_eye_outlined : Icons.remove_red_eye,
+                              logic.hintPass == true
+                                  ? Icons.remove_red_eye_outlined
+                                  : Icons.remove_red_eye,
                             ),
                           ),
                         ),
@@ -150,7 +153,7 @@ class _LoginScreenState extends State<_LoginScreen> {
                     children: [
                       Text(
                         'Forgot password? ',
-                        style: AppTextStyle.textMedium.copyWith(
+                        style: AppTextStyle.text12RI.copyWith(
                           color: AppColors.cGreen,
                         ),
                       ),
@@ -170,7 +173,10 @@ class _LoginScreenState extends State<_LoginScreen> {
                     children: [
                       Text(
                         'Login with Google',
-                        style: TextStyle(fontSize: 14, color: AppColors.cBlack, fontWeight: FontWeight.w600),
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: AppColors.cBlack,
+                            fontWeight: FontWeight.w600),
                       ),
                       SizedBox(width: 8),
                       SizedBox(
