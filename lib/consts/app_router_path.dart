@@ -12,5 +12,5 @@ class AppRoutePath {
   static const String mainPage = '/mainPage';
   static const String introPage = '/introPage';
   static const String checkout_payment_page = '/checkout_payment_page';
-  static const String addProduct = '/addProduct';
+  static const String adminPage = '/adminPage';
 }

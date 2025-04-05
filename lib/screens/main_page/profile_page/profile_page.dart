@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:bai_9a/consts/app_colors.dart';
 import 'package:bai_9a/consts/app_path.dart';
+import 'package:bai_9a/consts/app_router_path.dart';
 import 'package:bai_9a/ultis/app-funcion/app_function.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -90,9 +91,14 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ],
                 ),
-                SizedBox(width: 120),
-                SvgPicture.asset(
-                  AppImages.ic_logout,
+                SizedBox(width: 50),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutePath.login);
+                  },
+                  child: SvgPicture.asset(
+                    AppImages.ic_logout,
+                  ),
                 )
               ],
             ),

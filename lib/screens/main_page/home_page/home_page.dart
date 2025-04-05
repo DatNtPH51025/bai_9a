@@ -37,6 +37,7 @@ class _HomePageState extends State<_HomeScreen> {
   void initState() {
     super.initState();
     homeVm = context.read<HomeVm>();
+
     /// read cap nhat
     /// watch chi hien thi bien
     /// consumer nhan thong tin va cap nhat lai khoang gian dien duoc boc boi no
@@ -47,6 +48,7 @@ class _HomePageState extends State<_HomeScreen> {
     homeVm.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,26 +135,24 @@ class _HomePageState extends State<_HomeScreen> {
               },
             ),
             SizedBox(height: 12),
-            Consumer<HomeVm>(
-                builder: (context, HomeVm logic, child) {
-                  return GridView.builder(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: 0.66,
-                  ),
-                  itemCount: logic.products.length,
-                  itemBuilder: (context, index) {
-                    final product = logic.products[index];
-                    return ProductItem(item: product);
-                  },
-                );
-              }
-            ),
+            Consumer<HomeVm>(builder: (context, HomeVm logic, child) {
+              return GridView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  childAspectRatio: 0.64,
+                ),
+                itemCount: logic.products.length,
+                itemBuilder: (context, index) {
+                  final product = logic.products[index];
+                  return ProductItem(item: product);
+                },
+              );
+            }),
           ],
         ),
       ),
@@ -200,47 +200,45 @@ class _HomePageState extends State<_HomeScreen> {
     return SizedBox(
       height: 60.0,
       width: getWidth(context),
-      child: Consumer<HomeVm>(
-          builder: (_, HomeVm logic, child) {
-          return ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: logic.categories.length,
-            padding: EdgeInsets.only(left: 16, right: 8),
-            itemBuilder: (context, index) {
-              return Container(
-                width: 76,
-                margin: EdgeInsets.only(right: 8),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 8),
-                    Expanded(
-                      child: Image.asset(
-                        logic.categories[index].image ?? AppImages.img_electronics,
-                        height: 30,
-                        width: 60,
+      child: Consumer<HomeVm>(builder: (_, HomeVm logic, child) {
+        return ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: logic.categories.length,
+          padding: EdgeInsets.only(left: 16, right: 8),
+          itemBuilder: (context, index) {
+            return Container(
+              width: 76,
+              margin: EdgeInsets.only(right: 8),
+              child: Column(
+                children: [
+                  const SizedBox(height: 8),
+                  Expanded(
+                    child: Image.asset(
+                      logic.categories[index].image ??
+                          AppImages.img_electronics,
+                      height: 30,
+                      width: 60,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text(
+                      logic.categories[index].name ?? '',
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Text(
-                        logic.categories[index].name ?? '',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-          );
-        }
-      ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      }),
     );
   }
-
 
   Widget buildItemBanner() {
     return Padding(
@@ -267,7 +265,8 @@ class _HomePageState extends State<_HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 4.0, horizontal: 8.0),
                   decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(8.0), // Rounded corners
@@ -326,7 +325,9 @@ class _HomePageState extends State<_HomeScreen> {
         height: 6,
         margin: EdgeInsets.symmetric(horizontal: 2),
         decoration: BoxDecoration(
-          color: logic.index == indexItem ? AppColors.cYanPrimary : AppColors.cGray,
+          color: logic.index == indexItem
+              ? AppColors.cYanPrimary
+              : AppColors.cGray,
           shape: BoxShape.circle,
         ),
       );
@@ -408,7 +409,9 @@ class ProductItem extends StatelessWidget {
                       length,
                       (index) {
                         return Positioned(
-                          left: index == (length - 1) ? 0 : ((length - 1) - index) * 16,
+                          left: index == (length - 1)
+                              ? 0
+                              : ((length - 1) - index) * 16,
                           child: Container(
                             width: 24,
                             height: 24,
@@ -473,7 +476,14 @@ class ProductItem extends StatelessWidget {
 }
 
 class CustomSearch extends SearchDelegate {
-  List<String> allData = ['Smart watch', 'Laptop', 'Women bag', 'Headphones', 'Shoes', 'Eye glasses'];
+  List<String> allData = [
+    'Smart watch',
+    'Laptop',
+    'Women bag',
+    'Headphones',
+    'Shoes',
+    'Eye glasses'
+  ];
 
   List<String> recentSearches = [];
 
@@ -513,7 +523,8 @@ class CustomSearch extends SearchDelegate {
       children: [
         if (recentSearches.isNotEmpty) ...[
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: Text(
               'Recent Searches',
               style: TextStyle(
@@ -561,7 +572,8 @@ class CustomSearch extends SearchDelegate {
       children: [
         if (recentSearches.isNotEmpty) ...[
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: Text(
               'Recent Searches',
               style: TextStyle(

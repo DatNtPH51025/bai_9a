@@ -342,7 +342,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       children: [
         Container(
           height: 60,
-          width: 160,
+          width: getWidth(context) * 0.36,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border(
@@ -385,7 +385,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(width: 8),
+                SizedBox(width: 6),
                 SizedBox(
                   height: 24,
                   width: 24,

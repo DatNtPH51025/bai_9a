@@ -32,8 +32,10 @@ class AppClient {
 
     ///..interceptors.add(CurlLoggerDioInterceptor(printOnSuccess: true))
     /// co the se dung den, cu them cho chac
-    (dio.httpClientAdapter as dynamic).onHttpClientCreate = (HttpClient client) {
-      client.badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+    (dio.httpClientAdapter as dynamic).onHttpClientCreate =
+        (HttpClient client) {
+      client.badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
     };
   }
 }

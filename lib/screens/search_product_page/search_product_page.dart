@@ -75,7 +75,6 @@ class CustomSearch extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // Nếu có tìm kiếm, lưu nó vào danh sách tìm kiếm gần đây
     if (query.isNotEmpty && !recentSearches.contains(query)) {
       recentSearches.add(query);
     }
@@ -88,7 +87,8 @@ class CustomSearch extends SearchDelegate {
       children: [
         if (recentSearches.isNotEmpty) ...[
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: Text(
               'Recent Searches',
               style: TextStyle(
@@ -99,22 +99,22 @@ class CustomSearch extends SearchDelegate {
           ),
           ...recentSearches.map((search) {
             return ListTile(
-              leading: Icon(Icons.history), // Biểu tượng cho tìm kiếm gần đây
+              leading: Icon(Icons.history),
               title: Text(search),
               onTap: () {
-                query = search; // Đặt lại truy vấn khi nhấn
+                query = search;
                 showResults(context);
               },
             );
           }).toList(),
-          Divider(), // Thêm phân cách giữa danh sách tìm kiếm gần đây và kết quả tìm kiếm
+          Divider(),
         ],
         ...matchQuery.map((result) {
           return ListTile(
-            leading: Icon(result.icon), // Hiển thị biểu tượng cho mỗi mục
+            leading: Icon(result.icon),
             title: Text(result.name),
             onTap: () {
-              query = result.name; // Đặt lại truy vấn khi nhấn
+              query = result.name;
               showResults(context);
             },
           );
@@ -138,7 +138,8 @@ class CustomSearch extends SearchDelegate {
       children: [
         if (recentSearches.isNotEmpty) ...[
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
             child: Text(
               'Recent Searches',
               style: TextStyle(

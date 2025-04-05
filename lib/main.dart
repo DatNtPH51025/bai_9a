@@ -1,4 +1,6 @@
+import 'package:bai_9a/consts/app_consts.dart';
 import 'package:bai_9a/consts/app_routers.dart';
+import 'package:bai_9a/database/data_local/shared_pref.dart';
 import 'package:bai_9a/models/entity/hive_entity/contacts_model.dart';
 import 'package:bai_9a/models/entity/hive_entity/product.dart';
 import 'package:bai_9a/screens/splash_page/splash_page.dart';
@@ -38,7 +40,23 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: AppRouter.I.onGenerateRoute,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: SplashPage(), //AddProduct(),
+      home: SplashPage(),
     );
+  }
+
+  Future<void> setupDefaultAdmin() async {
+    String? existingAdminEmail =
+        await SharedPref.instance.getString(AppConsts.keyEmail);
+
+    if (existingAdminEmail == null) {
+      await SharedPref.instance
+          .setString(key: AppConsts.keyFullName, value: "Admin");
+      await SharedPref.instance
+          .setString(key: AppConsts.keyEmail, value: "admin@gmail.com");
+      await SharedPref.instance
+          .setString(key: AppConsts.keyPass, value: "admin123");
+      await SharedPref.instance
+          .setString(key: AppConsts.keyRole, value: "admin");
+    }
   }
 }

@@ -4,4 +4,5 @@ class AppConsts {
   static const String keyEmail = 'keyEmail';
   static const String keyFullName = 'keyFullName';
   static const String keyPass = 'keyPass';
+  static const String keyRole = 'keyRole';
 }

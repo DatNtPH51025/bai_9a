@@ -66,7 +66,7 @@ class _WishListScreenState extends State<WishListScreen> {
   Widget buildListItem(int index, Wishlist item) {
     return Container(
       width: 320,
-      height: getHeight(context) * 0.18,
+      height: getHeight(context) * 0.2,
       margin: EdgeInsets.only(bottom: 16),
       child: Row(
         children: [

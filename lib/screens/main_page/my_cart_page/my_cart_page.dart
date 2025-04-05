@@ -123,7 +123,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
                                           index, newQuantity);
                                     },
                                   ),
-                                  SizedBox(width: 8),
+                                  SizedBox(width: 6),
                                   IconButton(
                                     icon: Icon(Icons.delete, color: Colors.red),
                                     onPressed: () {

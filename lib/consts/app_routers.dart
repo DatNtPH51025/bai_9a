@@ -1,5 +1,5 @@
 import 'package:bai_9a/consts/app_router_path.dart';
-import 'package:bai_9a/screens/add_product/add_product.dart';
+import 'package:bai_9a/screens/AdminPage/admin_page.dart';
 import 'package:bai_9a/screens/intro_page/intro_page.dart';
 import 'package:bai_9a/screens/login_page/login_page.dart';
 import 'package:bai_9a/screens/main_page/home_page/home_page.dart';
@@ -62,8 +62,8 @@ class AppRouter {
         return MyCartPage();
       case AppRoutePath.productDetail:
         return ProductDetailPage();
-      case AppRoutePath.addProduct:
-        return AddProduct();
+      case AppRoutePath.adminPage:
+        return AdminPage();
       case AppRoutePath.listProductPage:
         return ListProductPage(
           idCate: (data as List)[0],
